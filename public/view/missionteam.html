@@ -1,0 +1,30 @@
+
+<div ng-controller="missionteamController as mteam">
+
+    <h1>Mission Team: {{mteam.teamname}}</h1>
+
+    <table class="table">
+        <thead>
+            <th></th>
+            <th>Name</th>
+            <th>Leadership</th>
+            <th>Campus</th>
+            <th>Personality</th>
+            <th>Experience</th>
+            <th>Skills</th>
+            <th>Delete</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(i,person) in mteam.team">
+                <td>{{i+1}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.type}}</td>
+                <td>{{person.campus}}</td>
+                <td>{{person.personality}}</td>
+                <td>{{person.experience}}</td>
+                <td>{{person.skill}}</td>
+                <td><input ng-click="mteam.delete(person._id, person.name, mteam.teamname)" type="checkbox" data-ng-false-value="xxx"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,159 @@
+
+<div id="people" ng-controller="missionController as mission">
+    <div class="row">
+        <div class="col-md-12 people-list">
+            <div class="title col-md-2">
+                <h2>People</h2>
+            </div>
+            <div class="search col-md-4 col-md-offset-6">
+                <input type="text" class="form-control" placeholder="search" ng-model="search">
+            </div>
+            <div class="col-md-12" style="height:400px;overflow:auto;margin-top: 20px;">
+
+                <table class="table table-striped">
+                    <thead style="">
+                    <th style="width:43px;"></th>
+                    <th style="width:203px;">Name</th>
+                    <th style="width:569px;">Vacation days</th>
+                    <th style="width:193px;">Perference</th>
+                    <th style="width:83px;">Delete</th>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(i,person) in mission.mperson | filter:search">
+                        <td>{{i+1}}</td>
+                        <td>
+                            <p class="person-name">{{person.name}}</p>
+                            <ul class="person-info">
+                                <li class="type"><span class="info">Type:</span> {{person.type}}</li>
+                                <li class="campus"><span class="info">Campus:</span> {{person.campus}}</li>
+                                <li class="personality"><span class="info">Personality:</span> {{person.personality}}</li>
+                                <li class="experience"><span class="info">Experience:</span> {{person.experience}}</li>
+                                <li class="skill"><span class="info">Skill:</span> {{person.skill}}</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <md-content ng-if="!person.vacationbeg" layout-padding="">
+                                <div layout-gt-xs="row">
+                                    <div flex-gt-xs="">
+                                        <h5 class="vacation-name">Beginning</h5>
+                                        <md-datepicker ng-model="mission.personBegDate[i]" md-placeholder="Enter date"></md-datepicker>
+                                    </div>
+
+                                    <div flex-gt-xs="">
+                                        <h5 class="vacation-name">End</h5>
+                                        <md-datepicker ng-model="mission.personEndDate[i]" md-placeholder="Enter date"></md-datepicker>
+                                    </div>
+                                </div>
+                            </md-content>
+
+
+                            <section ng-if="person.vacationbeg">
+                                <div style="color:green;">Beginning: <span>{{person.vacationbeg | date:'MM/dd/yyyy'}}</span></div>
+                                <div style="color:red;">End: <span>{{person.vacationend | date:'MM/dd/yyyy'}}</span></div>
+                            </section>
+                        </td>
+                        <td>
+                            <p class="preference-name">Countries:</p>
+                            <ol class="preference-list">
+                                <li>{{person.preference1}} <span class="info">choice 1:</span> country 1</li>
+                                <li>{{person.preference2}} <span class="info">choice 2:</span> country 2</li>
+                            </ol>
+                        </td>
+                        <td><input type="checkbox" ng-click="mission.deletePerson(person.name, person._id)"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-12">
+                <div style="margin: 20px 0px;">
+                    <input type="submit" class="btn update-btn" ng-click="mission.update()" value="Update">
+                    <input type="submit" class="btn sort-btn" ng-click="mission.sortteam()" value="Sort">
+                    <input type="submit" class="btn delete-btn" ng-click="mission.deletePersonExec()" value="Delete">
+                    <!--<input type="submit" class="btn btn-danger" ng-click="mission.deleteAllTeam()" value="Delete All Team">-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+    </div>
+
+    <div class="row" id="newperson">
+        <div class="col-sm-12">
+            <h2 class="title">Insert new person</h2>
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="text" ng-model="mission.newperson.Name" class="form-control" placeholder="First and Last Name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label for="">Leadership:</label>
+                    <select ng-model="mission.newperson.Type" name="" id="" class="form-control">
+                        <option value="Active">Active</option>
+                        <option value="Reserve">Reserve</option>
+                        <option value="Member">Member</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="">Campus:</label>
+                    <select ng-model="mission.newperson.Campus" name="" id="" class="form-control">
+                        <option value="Hongdae-A">Hongdae-A</option>
+                        <option value="Hongdae-O">Hongdae-O</option>
+                        <option value="Sillim">Sillim</option>
+                        <option value="Itaewon">Itaewon</option>
+                        <option value="Busan">Busan</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="">Personality:</label>
+                    <select ng-model="mission.newperson.Personality" name="" id="" class="form-control">
+                        <option value="Sang">Sang</option>
+                        <option value="Mel">Mel</option>
+                        <option value="Chol">Chol</option>
+                        <option value="Phelg">Phelg</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="">Experience:</label>
+                    <input type="text" placeholder="Experience" class="form-control" ng-model="mission.newperson.Experience">
+                </div>
+
+                <div class="col-sm-2">
+                    <label for="">Skills:</label>
+                    <select ng-model="mission.newperson.Skill" name="" id="" class="form-control">
+                        <option value="Praise">Praise</option>
+                        <option value="Video">Video</option>
+                        <option value="Photo">Photo</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <label for="">Preference1:</label>
+                    <select class="form-control" ng-model="mission.newperson.Preference1" ng-options="team.name for team in mission.missionteams">
+                    </select>
+                </div>
+                <div class="col-sm-3">
+                    <label for="">Preference2:</label>
+                    <select class="form-control" ng-model="mission.newperson.Preference2" ng-options="team.name for team in mission.missionteams">
+                    </select>
+                </div>
+            </div>
+
+            <div class="row" style="margin-top:20px;">
+                <div class="col-sm-6">
+                    <div class="btn insert-btn"  ng-click="mission.createExec()" >Insert</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

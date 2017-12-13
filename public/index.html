@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-App="directoryApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-route.min.js"></script>
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script src="service/user.js"></script>
+    <script src="service/main.js"></script>
+    <script src="service/auth.js"></script>
+    <script src="service/group.js"></script>
+    <script src="service/mission.js"></script>
+
+    <script src="controller/mission.js"></script>
+    <script src="controller/directory.js"></script>
+    <script src="controller/main.js"></script>
+    <script src="controller/user.js"></script>
+    <script src="controller/group.js"></script>
+
+    <script src="routes.js"></script>
+    <script src="core.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .datepickerdemoBasicUsage {
+            /** Demo styles for mdCalendar. */ }
+        .datepickerdemoBasicUsage md-content {
+            padding-bottom: 20px; }
+        .datepickerdemoBasicUsage .validation-messages {
+            font-size: 12px;
+            color: #dd2c00;
+            margin-left: 15px; }
+
+    </style>
+
+</head>
+<body>
+<header ng-controller="mainController as main">
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="#/" class="navbar-brand">
+                    Beta
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav">
+                <li><a href="#/mperson">People</a></li>
+                <li><a href="#/createmissionteam">Mission Team</a></li>
+                <li><a href="#/mission">Switch Members</a></li>
+                <li><a href="#/allteams">All Teams</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Projects<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://syoo-ecommerce-ui.herokuapp.com">E-Commerce UI Project</a></li>
+                        <li><a href="https://syoo-projects.herokuapp.com/calendar">Angular 2 Project</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!--<ul class="nav navbar-nav navbar-right">-->
+            <!--<li ><a href="#/signin">Signin</a></li>-->
+            <!--<li ><a href="#/signup">Signup</a></li>-->
+            <!--&lt;!&ndash;<li ng-if="main.loggedIn"><a href="#/" ng-click="main.doLogout()">Logout</a></li>&ndash;&gt;-->
+            <!--</ul>-->
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div ng-view=""></div>
+</div>
+</body>
+</html>

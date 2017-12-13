@@ -1,0 +1,12 @@
+
+<div class="container" ng-controller="mainController as user">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<form method="post" ng-submit="user.signIn()">
+				Name: <input type="text" name="name"  class="form-control" ng-model="user.data.name">
+				Password: <input type="password" name="password" class="form-control" ng-model="user.data.password">
+				<button type="submit" class="btn btn-primary">Sign In</button>			
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,144 @@
+
+<style>
+
+    .missionteams{
+        list-style-type: none;
+        padding: 0px;
+    }
+    
+    .missionteams li{
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 20px;
+    }
+
+</style>
+<div ng-controller="missionController as mission" ng-cloak="" class="datepickerdemoBasicUsage">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Team: {{mission.teamOne}}</h3>
+            <ul class="missionteams">
+                <li ng-repeat="(i, team) in mission.missionteams | orderBy: name">
+                    <a class="btn" ng-class="{ 'btn-info': i == mission.selectedIndex }" ng-click="mission.getTeam1(team.name, i)">{{team.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table border">
+                <thead>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Campus</th>
+                    <th>Type</th>
+                    <th>Personality</th>
+                    <th>Skill</th>
+                    <th>Vacation</th>
+                    <th>Preference</th>
+                    <th>Switch</th>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(i, member) in mission.team1">
+                        <td>{{1+i}}</td>
+                        <td>{{member.name}}</td>
+                        <td>{{member.campus}}</td>
+                        <td>{{member.type}}</td>
+                        <td>{{member.personality}}</td>
+                        <td>{{member.skill}}</td>
+                        <td>
+                            <section ng-if="member.vacationbeg">
+                                <div style="color:green;">Beginning: <span>{{member.vacationbeg | date:'MM/dd/yyyy'}}</span></div>
+                                <div style="color:red;">End: <span>{{member.vacationend | date:'MM/dd/yyyy'}}</span></div>
+                            </section>
+                        </td>
+                        <td>
+                            <ol>
+                                <li>{{member.preference1}}</li>
+                                <li>{{member.preference2}}</li>
+                            </ol>
+                        </td>
+                        <td ng-if="!member.vacationbeg">
+                            <input ng-click="mission.switch1(member._id, member.name)" type="checkbox" data-ng-false-value="xxx">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2">
+
+            <div class="well">
+                <ol>
+                    <li ng-repeat="member in mission.groupOneName">{{member}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Team: {{mission.teamTwo}}</h3>
+            <ul class="missionteams">
+                <li ng-repeat="(i, team) in mission.missionteams | orderBy: name">
+                    <a class="btn" ng-class="{ 'btn-info': i == mission.selectedIndex2 }" ng-click="mission.getTeam2(team.name, i)">{{team.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table border">
+                <thead>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Skill</th>
+                    <th>Vacation</th>
+                    <th>Preference</th>
+                    <th>Switch</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(i, member) in mission.team2">
+                    <td>{{1+i}}</td>
+                    <td>{{member.name}}</td>
+                    <td>{{member.type}}</td>
+                    <td>{{member.skill}}</td>
+                    <td>
+                        <section ng-if="member.vacationbeg">
+                            <div style="color:green;">Beginning: <span>{{member.vacationbeg | date:'MM/dd/yyyy'}}</span></div>
+                            <div style="color:red;">End: <span>{{member.vacationend | date:'MM/dd/yyyy'}}</span></div>
+                        </section>
+                    </td>
+                    <td>
+                        <ol>
+                            <li>{{member.preference1}}</li>
+                            <li>{{member.preference2}}</li>
+                        </ol>
+                    </td>
+                    <td ng-if="!member.vacationbeg">
+                        <input ng-click="mission.switch2(member._id, member.name)" type="checkbox" data-ng-false-value="xxx">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2">
+
+            <div class="well">
+                <ol>
+                    <li ng-repeat="member in mission.groupTwoName">{{member}}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="btn btn-danger" ng-click="mission.switch()">
+    </div>
+
+</div>
+
+

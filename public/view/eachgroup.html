@@ -1,0 +1,37 @@
+
+<div ng-controller="eachgroupController as each">
+
+    <h1>Group Page</h1>
+
+    <div class="row">
+        <div class="col-md-8" style="margin-top:20px;">
+            <h2>Group {{each.group.number}}</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Campus</th>
+                    <th>Gender</th>
+                    <th>Type</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="person in each.people">
+                        <td>{{person.name}}</td>
+                        <td>{{person.campus}}</td>
+                        <td>{{person.gender}}</td>
+                        <td>{{person.type}}</td>
+                        <td>
+                            <input ng-click="each.delete(person._id, person.name)" type="checkbox" data-ng-false-value="xxx">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <input class="btn-danger" type="submit" ng-click="each.deleteExec(each.group.number)" value="Delete">
+            </div>
+        </div>
+    </div>
+
+</div>

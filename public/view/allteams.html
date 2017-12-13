@@ -1,0 +1,17 @@
+<style>
+    .clearall{
+        clear:both;
+    }
+</style>
+
+<div ng-controller="allteamsController as all">
+
+    <div class="row">
+        <div class="col-sm-4" ng-class=" i == 0 ? 'clearall': '' ||  i%3 == 0 ? 'clearall': ''" ng-repeat="(i, team) in all.missionteams">
+            <h3>Team: {{team.name}}</h3>
+            <ul ng-repeat="member in team.members">
+                <li>{{member.name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

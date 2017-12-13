@@ -1,0 +1,174 @@
+/*
+****** People Page Beg******
+*/
+#people .people-list{
+    background-color: #455A64;
+}
+
+#people .title h2, #newperson h2{
+    color: #fff;
+}
+
+#people .search input{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 16px;
+    background: #607D8B;
+    margin-bottom: 5px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+/*
+* Table
+*/
+
+.table-striped>tbody>tr, .table-striped>tbody>tr md-content{
+    background-color: #607D8B;
+}
+
+.table-striped>tbody>tr:nth-of-type(odd),.table-striped>tbody>tr:nth-of-type(odd) md-content{
+    background-color: #607D8B;
+}
+
+.table-striped thead{
+    background-color: #607D8B;
+}
+
+.table-striped{
+    color: #CFD8DC;
+    border-color: #BDBDBD;
+}
+
+#people .person-info, #people .preference-list{
+    list-style-type: none;
+    padding:0px 10px;
+}
+
+#people .person-name, #people .preference-name, #people .vacation-name{
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
+
+#people .person-info li, #people .preference-list li{
+    font-size: 12px;
+    padding: 2px 0px;
+}
+
+#people .info{
+    font-weight: 500;
+    color: #fff;
+}
+
+input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #CFD8DC !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #CFD8DC;
+    opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #CFD8DC;
+    opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:    #CFD8DC;
+}
+
+.md-datepicker-focused,.md-default-theme .md-datepicker-open .md-datepicker-calendar-icon, .md-datepicker-open .md-datepicker-calendar-icon,md-content input{
+    border-color: #CFD8DC !important;
+    color:#CFD8DC !important;
+}
+
+/*
+* Buttons
+*/
+.sort-btn{
+    border-radius: 8px;
+    background-color: #FFEB3B;
+    color: #fff;
+}
+
+.update-btn{
+    border-radius: 8px;
+    background-color: #00BCD4;
+    color: #fff;
+}
+
+.delete-btn, .insert-btn, .create-btn{
+    border-radius: 8px;
+    background-color: #FF5252;
+    color: #fff;
+}
+
+/*
+* Insert Person
+*/
+
+#newperson{
+    margin: 40px -15px;
+    background-color: #455A64;
+    padding-bottom: 25px;
+}
+
+#newperson label{
+    color:#fff;
+    margin-top: 8px;
+}
+
+#newperson input, #newperson select{
+    border-radius: 4px;
+    background: #607D8B;
+    border: none;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+/*
+****** People Page End******
+*/
+
+
+/*
+****** Mission Team Page Beg******
+*/
+
+#mcreate .create-mission-form, #mcreate .team-list{
+    background-color: #455A64;
+}
+
+#mcreate .team-list{
+    margin-top: 20px;
+}
+
+#mcreate h2{
+    color: #fff;
+}
+
+#mcreate input, #mcreate select{
+    border-radius: 4px;
+    background: #607D8B;
+    border: none;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+md-content{
+    background-color: #607D8B;
+}
+
+#mcreate table{
+    color: #fff;
+    border-color: #BDBDBD;
+}
+
+#mcreate table a{
+    color: #CFD8DC;
+    font-weight: 800;
+}
+
+#mcreate .date{
+    color:#CFD8DC;
+}

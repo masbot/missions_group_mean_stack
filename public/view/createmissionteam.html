@@ -1,0 +1,58 @@
+<div id="mcreate" ng-controller="missionController as mission">
+    <div class="row create-mission-form">
+        <div class="col-md-12">
+            <h2>Create Team</h2>
+        </div>
+        <div class="col-sm-6" style="margin-bottom: 30px;">
+
+            <div class="create-team">
+                <div class="form-group">
+                    <input class=" name form-control" ng-model="mission.missionteam.name" type="text" name="name" placeholder="Team Name">
+                </div>
+                <div class="form-group">
+                    <md-content ng-if="!person.vacationbeg" layout-padding="">
+                        <div layout-gt-xs="row">
+                            <div flex-gt-xs="">
+                                <h4>Beginning</h4>
+                                <md-datepicker ng-click="" ng-model="mission.missionteam.datebeg" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+
+                            <div flex-gt-xs="">
+                                <h4>End</h4>
+                                <md-datepicker ng-model="mission.missionteam.dateend" md-placeholder="Enter date"></md-datepicker>
+                            </div>
+                        </div>
+                    </md-content>
+                </div>
+                <div ng-click="mission.createteam(mission.missionteam)" class="btn create-btn">Create Team</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row team-list">
+        <div class="col-sm-12">
+            <h2 class="title">Teams</h2>
+            <table class="table table-bordered">
+                <thead>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Team Leader</th>
+                <th>Delete</th>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(i, team) in mission.missionteams">
+                    <td><a href="#/missionteam/{{team.name}}">{{team.name}}</a></td>
+                    <td>
+                        <div><span class="info">Beginning:</span> <span class="date">{{team.datebeg | date:'MM/dd/yyyy'}}</span></div>
+                        <div><span class="info">End:</span> <span class="date">{{team.dateend | date:'MM/dd/yyyy'}}</span></div>
+                    </td>
+                    <td>###</td>
+                    <td><input type="checkbox" ng-click="mission.deleteTeam(team.name)"></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="delete-btn btn" ng-click="mission.deleteTeamExec()">Delete Team</div>
+        </div>
+
+    </div>
+</div>

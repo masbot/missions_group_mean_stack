@@ -1,0 +1,119 @@
+
+<div ng-controller="groupController as group">
+    <div class="row">
+        <div class="col-md-8">
+            <div>
+                <input type="text" ng-model="search" placeholder="Search">
+            </div>
+            <div>
+                <label>Campus:</label>
+                <label>Hongdae</label><input  type="checkbox" ng-model="group.Hongdae" ng-true-value="'Hongdae'"  data-ng-false-value="" />
+                <label>Busan</label><input  type="checkbox" ng-model="group.Busan" ng-true-value="'Busan'"  data-ng-false-value=""/>
+                <label>Itaewon</label><input  type="checkbox" ng-model="group.Itaewon" ng-true-value="'Itaewon'"  data-ng-false-value=""/>
+                <label>Sillim</label><input  type="checkbox" ng-model="group.Sillim" ng-true-value="'Sillim'"  data-ng-false-value=""/>
+            </div>
+            <div>
+                <label>Gender:</label>
+                <label>Male</label><input  type="checkbox" ng-model="group.Male" ng-true-value="'Male'"  data-ng-false-value="" />
+                <label>Female</label><input  type="checkbox" ng-model="group.Female" ng-true-value="'Female'"  data-ng-false-value=""/>
+            </div>
+            <div>
+                <label>Type:</label>
+                <label>Active</label><input type="checkbox" ng-model="group.Active" ng-true-value="'Active'" data-ng-false-value=""/>
+                <label>Reserve</label><input type="checkbox" ng-model="group.Reserve" ng-true-value="'Reserve'" data-ng-false-value=""/>
+                <label>Member</label><input type="checkbox" ng-model="group.Member" ng-true-value="'Member'" data-ng-false-value=""/>
+                <label>Non-member</label><input type="checkbox" ng-model="group.Nonmember" ng-true-value="'Non-member'" data-ng-false-value=""/>
+            </div>
+
+            <!--<div>-->
+                <!--<label>Male: {{group.male}}</label>-->
+                <!--<label>Female: {{group.female}}</label>-->
+            <!--</div>-->
+
+            <div>
+                <label>Hongdae: {{group.hongdae}}</label>
+                <label>Busan: {{group.busan}}</label>
+                <label>Itaewon: {{group.itaewon}}</label>
+                <label>Sillim: {{group.sillim}}</label>
+            </div>
+
+            <div>
+                <label>Active: {{group.active}}</label>
+                <label>Reserve: {{group.reserve}}</label>
+                <label>Member: {{group.member}}</label>
+                <label>Non-member: {{group.nonmember}}</label>
+            </div>
+            <div style="margin-top:20px;height:300px;overflow:scroll;">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>campus</th>
+                        <th>gender</th>
+                        <th>type</th>
+                        <th>select</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="(i, person) in group.persons | filter:search | filter:group.showCampus | filter:group.showGender | filter:group.showType ">
+                        <td>{{i+1}}</td>
+                        <td>{{person.name}}</td>
+                        <td>{{person.campus}}</td>
+                        <td>{{person.gender}}</td>
+                        <td>{{person.type}}</td>
+                        <td><input ng-click="group.select(person._id, person.name, person.campus, person.type)" type="checkbox" data-ng-false-value="xxx"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <input class="btn-success" type="submit" value="Make New Group" ng-click="group.makegroup()">
+            </div>
+            <div>
+                <input class="btn-primary" type="submit" value="Add To Group" ng-click="group.addtogroup(test)">
+                <select name="" id="" ng-model="group.selectedGroupNum" ng-options="num.number for num in group.groups">
+
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Sort" class="btn-warning" ng-click="group.sortperson()">
+            </div>
+        </div>
+
+        <div class="col-md-4" style="border:1px solid black;">
+            <h4>People selected:</h4>
+            <ul class="selectedlist">
+                <li ng-repeat="select in group.selectedlist">{{select.name}} | {{select.campus}} | {{select.type}}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8" style="margin-top:20px;">
+            <h2>Groups</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Group Number</th>
+                        <th>Group Leader</th>
+                        <th>Total</th>
+                        <th>Switch</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(i, ggroup) in group.groups">
+                        <td><a href="#/eachgroup/{{ggroup.number}}">Group {{ggroup.number}}</a></td>
+                        <td>{{ggroup.people[0].name}}</td>
+                        <td>{{ggroup.people.length}}</td>
+                        <td>
+                            <input ng-click="group.switch(ggroup.number)" type="checkbox" ng-model="ggroup.selected" ng-hide="group.switchlist.length == 2 && (ggroup.selected == undefined || ggroup.selected == false )">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a href="#/switch/{{group.switchlist[0]}}/{{group.switchlist[1]}}"><input class="btn-danger" type="submit" value="Switch"></a>
+            </div>
+        </div>
+    </div>
+</div>

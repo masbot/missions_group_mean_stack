@@ -1,0 +1,77 @@
+
+<div ng-controller="mainController as main">
+	<!--<div class="jumbotron">-->
+		<!--<h1>Hello, {{main.user.name}}!</h1>-->
+	<!--</div>-->
+
+	<!--<input type="file" id="file" name="file" enctype="multipart/form-data" />-->
+
+	<!--<div>-->
+		<!--<h1>Retreats</h1>-->
+		<!--<input type="file" style="" id="file" name='file' onchange="angular.element(this).scope().fileNameChanged(this.files)" />-->
+	<!--</div>-->
+	<style>
+		.question{
+			margin-top: 16px;
+			font-weight: 800;
+		}
+		.answer{
+			width: 65%;
+			margin-left: 4%;
+		}
+	</style>
+
+	<div>
+		<h3>Missions</h3>
+		<p style="color:blue;">Select csv file to upload people's info.</p>
+		<input type="file" style="" id="missions" name='file' onchange="angular.element(this).scope().missions(this.files)" />
+	</div>
+
+	<div class="row" style="margin-top: 50px;">
+		<div class="row">
+			<div class="col-md-2">
+				<h4 style="text-decoration: underline;">About the Project</h4>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p class="question">Why I Made This?</p>
+				<div class="answer">
+					<p>My goal for this project was to:</p>
+					<ul>
+						<li>create an app that would increase the productivity of my church's mission department,</li>
+						<li>learn and grow as a developer by solving a real world problem and working with other people.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p class="question">What does it do?</p>
+				<div class="answer">
+					<p>
+						The problem that I tried to tackle was the lengthy time it took in making mission's teams.
+						In order to create different teams, the mission's director would have to take various variables into consideration like personality, preferences, gender, and etc.
+						My application tries to automate that process by making groups based on those variables, and allowing the director to easily make updates if she desired to make changes.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<p class="question">What did I learned from this experience?</p>
+				<div class="answer">
+					<p>
+						Unfortunately, this project didn't pass the beta phrase and the director didn't use the application for 2016's mission trips because of timing. She was pressed for time and needed to create mission's team earlier than expected.
+						Even though the project didn't go as planned, I'm grateful for the learning experience.
+						I learned the process of creating an application for other people, and trying to solve a problem by using algorithms.
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
